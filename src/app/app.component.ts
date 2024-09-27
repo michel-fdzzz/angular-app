@@ -9,5 +9,10 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'angular-app';
+
+  title = 'Hola mundo angular desde';//Si pones que sea pirvate el app.component.html da error
+  // Se puede especificar los tipos pero no hace falta
+  // Explicacion age: number = 34
+
+  user: string[] = ['Pepe', 'María', 'Andrés']; //: string[] no es necesario
 }
