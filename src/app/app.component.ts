@@ -18,6 +18,8 @@ export class AppComponent {
   // Se puede especificar los tipos pero no hace falta
   // Explicacion age: number = 34
 
+  subtitle = 'Contador con estado de session'
+
   users: string[] = ['Pepe', 'María', 'Manuel'];  //: string[] no es necesario para especificar que es un array
   //users: string[] = []; para comprobar si funci0one el *ngIf de la tabla al estar el array vacío 
   /**
