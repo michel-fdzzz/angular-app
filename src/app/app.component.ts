@@ -22,4 +22,13 @@ export class AppComponent {
    *  users!: string[];
    * users?: string[];
    */
+
+  visible: boolean = false;
+
+  setVisible(): void {
+    //Si visible es true se hace false y sino al revés
+    this.visible = this.visible ? false : true;
+    console.log('Hemos hecho click en setVisible');
+  }
+
 }
