@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-counter',
@@ -12,6 +12,9 @@ export class CounterComponent implements OnInit {
   //Input es una informacion que provee el padre, el output al revés
   @Input() title!: string;
 
+  //Info del padrer al hijo
+  @Output() counterEmmit: EventEmitter<number> = new EventEmitter();
+
   ngOnInit(): void {
     //Tambien puede ser sessionStorage & se pone ! porque si no da error por si es nulo
     this.counter = sessionStorage.getItem('counter') != undefined ?
@@ -22,5 +25,6 @@ export class CounterComponent implements OnInit {
   setCounter(): void {
     this.counter = this.counter + 1;
     sessionStorage.setItem('counter', this.counter.toString());// Lo concatenamos porque no deja que sea un tipo number
+    this.counterEmmit.emit(this.counter);
   }
 }

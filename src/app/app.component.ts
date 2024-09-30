@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 //Se importa el nuevo componente, abajo en imports también
@@ -12,7 +12,7 @@ import { CounterComponent } from './counter/counter.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   title = 'Hola mundo angular desde VSC';//Si pones que sea pirvate el app.component.html da error
   // Se puede especificar los tipos pero no hace falta
@@ -30,10 +30,21 @@ export class AppComponent {
 
   visible: boolean = false;
 
+  counter: number = 0;
+
+  //Con esto se inicializa el contador de primeras
+  ngOnInit(): void {
+    this.counter = parseInt(sessionStorage.getItem('counter')!);
+  }
+
   setVisible(): void {
     //Si visible es true se hace false y sino al revés
     this.visible = this.visible ? false : true;
     console.log('Hemos hecho click en setVisible');
+  }
+
+  setCounter(event: number): void {
+    this.counter = event;
   }
 
 }
