@@ -2,10 +2,13 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
+//Se importa el nuevo componente, abajo en imports también
+import { CounterComponent } from './counter/counter.component';
+
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule], //El commmonModule lo he puesto para que funcione el ngFor
+  imports: [RouterOutlet, CommonModule, CounterComponent], //El commmonModule lo he puesto para que funcione el ngFor
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
