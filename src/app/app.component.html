@@ -1,2 +1,21 @@
 <h2> {{title}} </h2>
-<div> {{user}} </div>
+<!-- Si users tiene contenido y es diferente de undefined se muestra -->
+<table *ngIf="(users != undefined && users.length > 0) else isEmpty">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users; index as i">
+            <td>{{i}}</td>
+            <td>{{user}}</td>
+        </tr>
+    </tbody>
+</table>
+<ng-template #isEmpty>
+    <div>
+        No existe registro en el sistema!
+    </div>
+</ng-template>
